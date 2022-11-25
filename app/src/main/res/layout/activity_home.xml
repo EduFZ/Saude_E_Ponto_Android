@@ -6,17 +6,384 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Home">
+    tools:context=".Home"
+    android:padding="15dp">
 
-    <TextView
-        android:id="@+id/txv_apresentacao"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_reactions"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bem vindo!"
-        android:textSize="32sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/star_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="128"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/star_img"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textStyle="bold"
+            android:textColor="#EAC338"
+            android:layout_marginStart="5dp"/>
+
+        <ImageView
+            android:id="@+id/star_img"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/star"/>
+
+        <TextView
+            android:id="@+id/heart_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="35"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/star_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textStyle="bold"
+            android:textColor="#F42D45"/>
+
+        <ImageView
+            android:id="@+id/heart_img"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/heart_number"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/heart"
+            android:layout_marginEnd="5dp"/>
+
+        <TextView
+            android:id="@+id/shock_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="35"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textStyle="bold"
+            android:textColor="#008EDE"/>
+
+        <ImageView
+            android:id="@+id/shock_img"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/shock_number"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/shock"
+            android:layout_marginEnd="5dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/card_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/layout_reactions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/card_home"
+        android:backgroundTint="#D3ECDF"
+        android:layout_marginTop="35dp"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bom dia, Henrique"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textStyle="bold"
+            android:textSize="30sp"/>
+
+        <TextView
+            android:id="@+id/txt_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hoje é feriado!"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="25dp" />
+
+        <TextView
+            android:id="@+id/txt_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Que tal aproveitar o Sol lá fora e colocar o projeto Verão em ação?"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_subtitle"
+            android:textStyle="normal"
+            android:textSize="18sp"
+            android:layout_marginTop="25dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <Button
+        android:id="@+id/btn_exercicios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/card_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Ver opções de Ecercício"
+        android:textStyle="bold"
+        android:backgroundTint="#0C3B2E"
+        android:layout_marginTop="35dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_cards"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btn_exercicios"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="35dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/button_one"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btn_one"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/card_home"
+                android:backgroundTint="#F44336"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/btn_one"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="Avaliar minha comida"
+                android:gravity="center" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/button_two"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/button_one"
+            android:layout_marginStart="40dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btn_two"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/card_home"
+                android:backgroundTint="#D9D9D9"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/btn_two"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="Lazer e Passeios"
+                android:gravity="center" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/button_three"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/button_two"
+            android:layout_marginStart="40dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btn_three"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/card_home"
+                android:backgroundTint="#D9D9D9"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/btn_three"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="Novidades na Região"
+                android:gravity="center" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/button_four"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/button_one"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="25dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btn_four"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/card_home"
+                android:backgroundTint="#D9D9D9"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Em Construção"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_four" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/button_five"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/button_one"
+            app:layout_constraintStart_toStartOf="@id/button_two"
+            android:layout_marginTop="25dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btn_five"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/card_home"
+                android:backgroundTint="#D9D9D9"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Em Construção"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_five" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/button_six"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/button_one"
+            app:layout_constraintStart_toStartOf="@id/button_three"
+            android:layout_marginTop="25dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btn_six"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/card_home"
+                android:backgroundTint="#D9D9D9"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Em Construção"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_six" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/footer_img_geral"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/footer_geral"/>
+
+        <ImageView
+            android:id="@+id/footer_img_social"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/footer_img_geral"
+            app:layout_constraintEnd_toStartOf="@id/footer_img_home"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/footer_social"/>
+
+        <ImageView
+            android:id="@+id/footer_img_home"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/footer_home"
+            android:layout_marginStart="35dp"/>
+
+        <ImageView
+            android:id="@+id/footer_img_perfil"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/footer_img_home"
+            app:layout_constraintEnd_toStartOf="@id/footer_img_options"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/footer_perfil"/>
+
+        <ImageView
+            android:id="@+id/footer_img_options"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/footer_options"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

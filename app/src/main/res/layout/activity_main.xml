@@ -84,12 +84,10 @@
         android:layout_height="55dp"
         android:layout_marginTop="24dp"
         android:text="Login"
-        app:iconTint="@color/teal_700"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edt_password"
-        android:backgroundTint="#28977B"
-        app:rippleColor="@color/teal_700" />
+        android:backgroundTint="#28977B"/>
 
     <TextView
         android:layout_width="wrap_content"
