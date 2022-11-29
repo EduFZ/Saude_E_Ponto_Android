@@ -46,36 +46,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/seta_img" />
 
-    <EditText
-        android:id="@+id/edt_alimento"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/edt_nome_alimento"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/input_customs"
-        android:hint="Digite um nome de alimento..."
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_title_comida"
-        android:paddingEnd="32dp"
-        android:layout_marginTop="32dp"/>
+        android:layout_marginTop="32dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/btn_search"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/input_customs"
-        android:backgroundTint="#0C3B2E"
-        app:layout_constraintBottom_toBottomOf="@+id/edt_alimento"
-        app:layout_constraintStart_toEndOf="@id/edt_alimento"
-        app:layout_constraintTop_toTopOf="@id/edt_alimento">
-
-        <ImageView
-            android:id="@+id/search_img"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+        <EditText
+            android:id="@+id/edt_alimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_customs"
+            android:hint="Digite um nome de alimento..."
+            android:paddingEnd="90dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/search" />
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btn_search"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/input_customs"
+            android:backgroundTint="#0C3B2E"
+            app:layout_constraintBottom_toBottomOf="@+id/edt_alimento"
+            app:layout_constraintStart_toEndOf="@id/edt_alimento"
+            app:layout_constraintTop_toTopOf="@id/edt_alimento">
+
+            <ImageView
+                android:id="@+id/search_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/search" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -88,7 +99,7 @@
         android:textSize="20sp"
         android:textColor="#182748"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edt_alimento"
+        app:layout_constraintTop_toBottomOf="@id/edt_nome_alimento"
         android:layout_marginTop="32dp"/>
 
     <TextView
