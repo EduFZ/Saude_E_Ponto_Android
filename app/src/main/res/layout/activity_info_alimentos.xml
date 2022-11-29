@@ -62,9 +62,10 @@
             android:background="@drawable/input_customs"
             android:hint="Digite um nome de alimento..."
             android:paddingEnd="90dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            tools:ignore="TouchTargetSizeCheck" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/btn_search"
