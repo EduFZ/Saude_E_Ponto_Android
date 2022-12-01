@@ -27,22 +27,20 @@ class InfoAlimentos : AppCompatActivity() {
         btnSearchFruta.setOnClickListener {
             val call = RetrofitFactory().retrofitService().getFruta(edt_alimento.text.toString())
 
-            call.enqueue(object : Callback<Fruta> {
+            call.enqueue(object : Callback<RetrofitService.Fruta> {
 
-                override fun onResponse(call: Call<Fruta>, response: Response<Fruta>) {
+                override fun onResponse(call: Call<RetrofitService.Fruta>, response: Response<RetrofitService.Fruta>) {
                     Log.i("Fruta", it.toString())
                     Toast.makeText(this@InfoAlimentos, it.toString(), Toast.LENGTH_LONG).show()
-                } ?: Toast.makeText(this@InfoAlimentos, "Fruta não localizada", Toast.LENGTH_LONG)
-                .show()
+                }
 
-                override fun onFailure(call: Call<Fruta>?, t: Throwable?) {
-                    t?.message?.Let { it1 -> Log.e("Erro", it1) }
+                override fun onFailure(call: Call<RetrofitService.Fruta>?, t: Throwable?) {
+                    t?.message?.let { it1 -> Log.e("Erro", it1) }
                 }
 
             })
 
         }
-
 
 
     }
