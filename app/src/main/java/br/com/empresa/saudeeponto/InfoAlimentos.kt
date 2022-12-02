@@ -24,6 +24,11 @@ class InfoAlimentos : AppCompatActivity() {
         val qnt_calorias: TextView = findViewById(R.id.qnt_calorias)
 
 
+        val Fruta = edt_alimento
+
+
+
+
         btnSearchFruta.setOnClickListener {
             val call = RetrofitFactory().retrofitService().getFruta(edt_alimento.text.toString())
 
